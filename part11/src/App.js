@@ -40,7 +40,6 @@ const Total = (props) => {
   )
 }
 const App = () => {
-  const now = new Date()
   return (
     <div>
       <Time/>
