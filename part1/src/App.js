@@ -14,7 +14,7 @@ const Header = (props) => {
 const Content = (props) => {
   return ( 
     <div>
-     {props.parts.map(t => (<li> {t.name} {t.exercises}</li>))}
+     {props.parts.map(t => <li>{t.name} {t.exercises}</li> )}
     </div>
   )
 }
@@ -32,23 +32,25 @@ const Footer = () => {
 }
 const App = () => {
   const course = "Half stack application development" 
-  const part1 = {
-    name: "Fundamentals of React",
-    exercises: 10
-  }
-  const part2 = {
-    name: "Using props to pass data",
-    exercises: 7 
-  }
-  const part3 = {
-    name: "state of component",
-    exercises: 14
-  }
+  const parts = [
+    {
+     name: "Fundamentals of React",
+     exercises: 10
+    },
+    {
+     name: "Using props to pass data",
+     exercises: 7 
+    },
+    {
+     name: "state of component",
+     exercises: 14
+    }
+  ]
   return (
     <div>
       <Time/>
       <Header course = {course}/>
-      <Content parts = {[part1, part2, part3]} />
+      <Content parts = {parts}/>
       <Total exercises1 = {10} exercises2 = {7} exercises3 = {14} />
       <Footer/>
     </div>
