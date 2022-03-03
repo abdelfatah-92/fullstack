@@ -1,32 +1,57 @@
 import React from "react"
-const Ho = (props) => {
+const Time = () => {
+  const Now = new Date()
+  return(
+    <p>it is {Now.toString()}</p>
+  )
+}
+
+const Header = (props) => {
   return (
+    <h1>{props.course}</h1>
+  )
+} 
+const Content = (props) => {
+  return ( 
     <div>
-      <p>Hello {props.name} you are {props.age} years old </p>
+     {props.parts.map(t => (<li> {t.name} {t.exercises}</li>))}
     </div>
+  )
+}
+const Total = (props) => {
+  return (
+   <p> Number of exercises {props.exercises1 + props.exercises2 + props.exercises3} </p>
   )
 }
 const Footer = () => {
-  return (
-    <div>
-    greeting app created by <a href="https://github.com/abdelfatah-92">Abdo</a>
-    </div>
+  return(
+   <p>
+      App created by <a href="https://github.com/abdelfatah-92">Abdo</a>
+   </p>
   )
 }
 const App = () => {
-  const Name = 'Abdelfatah'
-  const Age = 30
-  const Time = new Date()
-  const a = 40
-  const b = 20 
-  return [
-      <h1>Greating</h1>,
-      <Ho name="Saleh" age={20+5} />,
-      <Ho name="Mohamed" age="33" />,
-      <Ho name={Name} age={Age} />,
-      <Footer />,
-      <p>hello world it is {Time.toString()}</p>,
-      <p> {a} plus {b} = {a + b}</p>
-  ]
-}  
-export default App;
+  const course = "Half stack application development" 
+  const part1 = {
+    name: "Fundamentals of React",
+    exercises: 10
+  }
+  const part2 = {
+    name: "Using props to pass data",
+    exercises: 7 
+  }
+  const part3 = {
+    name: "state of component",
+    exercises: 14
+  }
+  return (
+    <div>
+      <Time/>
+      <Header course = {course}/>
+      <Content parts = {[part1, part2, part3]} />
+      <Total exercises1 = {10} exercises2 = {7} exercises3 = {14} />
+      <Footer/>
+    </div>
+  )
+}
+export default App
