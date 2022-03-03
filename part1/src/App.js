@@ -18,9 +18,15 @@ const Content = (props) => {
     </div>
   )
 }
+const sum = (p1, p2, p3 ) => {
+  return( p1 + p2 + p3
+    )
+}
 const Total = (props) => {
   return (
-   <p> Number of exercises {props.exercises1 + props.exercises2 + props.exercises3} </p>
+   <div> 
+    Number of exercises {sum(props.parts[0].exercises, props.parts[1].exercises, props.parts[2].exercises)}
+   </div>
   )
 }
 const Footer = () => {
@@ -49,9 +55,9 @@ const App = () => {
   return (
     <div>
       <Time/>
-      <Header course = {course}/>
-      <Content parts = {parts}/>
-      <Total exercises1 = {10} exercises2 = {7} exercises3 = {14} />
+      <Header course={course}/>
+      <Content parts={parts}/>
+      <Total parts={parts}/>
       <Footer/>
     </div>
   )
